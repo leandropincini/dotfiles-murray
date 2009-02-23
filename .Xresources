@@ -1,0 +1,29 @@
+! Global
+Xft.antialias: true
+Xft.rgba      : rgb
+Xft.hintstyle : hintfull
+Xft.hinting   : true
+
+! URxvt
+!URxvt*background: #15233a
+URxvt*xftAntialias: true
+URxvt*background: #242424
+URxvt*foreground: #fafffa
+!URxvt*inheritPixmap: true
+!URxvt*reverseVideo: false
+!URxvt*tintColor: #000000
+!URxvt*shading: 40
+!URxvt*fading: 5
+URxvt*font: xft:Monaco:pixelsize=11:antialias=false
+URxvt*boldFont : xft:Monaco: pixelsize=11:weight=bold
+URxvt*scrollBar: false
+URxvt*toolBar: false
+!URxvt*transparent: True
+
+! Emacs
+!Emacs.font: Monospace-10
+Emacs.FontBackend: xft
+!Emacs.font: Bitstream Vera Sans Mono-10
+
+!Emacs.FontBackend: Ixft x ftx
+Emacs.Font:Monaco-8
