@@ -110,7 +110,7 @@
 ;; speedbar inframe support
 (load-library "~/.emacs-files/sr-speedbar.el")
 (require 'sr-speedbar)
-(global-set-key [(super ?p)] 'sr-speedbar-toggle)
+(global-set-key [(super ?[)] 'sr-speedbar-toggle)
 
 ;; speedbar options
 (speedbar-add-supported-extension ".js")
