@@ -19,13 +19,43 @@
 ; '(tab-always-indent (quote always))
  '(tab-always-ident t)
  '(tab-width 4)
- '(tooltip-mode nil))
+ '(tooltip-mode nil)
+ '(ecb-enlarged-compilation-window-max-height (quote best))
+ '(ecb-eshell-auto-activate nil)
+ '(ecb-layout-name "left8")
+ '(ecb-layout-nr 9)
+ '(ecb-layout-window-sizes (quote (("left8" (0.21794871794871795 . 0.4878048780487805) (0.21794871794871795 . 0.4878048780487805)) ("left-analyse" (0.21794871794871795 . 0.43902439024390244) (0.21794871794871795 . 0.34146341463414637) (0.21794871794871795 . 0.0975609756097561) (0.21794871794871795 . 0.0975609756097561)))))
+ '(ecb-non-semantic-parsing-function nil)
+ '(ecb-options-version "2.32")
+ '(ecb-other-window-behavior (quote edit-and-compile))
+ '(ecb-other-window-jump-behavior (quote edit-and-copmile))
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--C-mouse-1))
+ '(ecb-source-path (quote ("~/" "Home")))
+ '(ecb-tip-of-the-day nil)
+)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+;; initialize emacs maximized
+(defun toogle-fullscreen ()
+  (interactive)
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+						 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
+  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
+						 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+)
+(toogle-fullscreen)
+
+;; YASnippet autoload
+(add-to-list 'load-path "~/.emacs-files/yasnippet-0.5.10")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs-files/yasnippet-0.5.10/snippets")
+(setq yas/window-system-popup-function 'yas/x-popup-menu-for-template)
 
 ;; Jeremy's groovy mode autoload
 (load-library "~/.emacs-files/groovy-mode.el")
@@ -60,7 +90,6 @@
 ;; classic theme autoload
 (require 'color-theme)
 (color-theme-initialize)
-;(color-theme-select 'deep-blue)
 ;(color-theme-classic)
 
 ;; wombat-color-theme
@@ -106,6 +135,18 @@
 ;; truncating of long lines
 ;(setq truncate-lines nil)
 (global-set-key "\C-ct" 'toggle-truncate-lines)
+
+;; load cedet
+(load-file "/usr/share/emacs/site-lisp/cedet/common/cedet.el")
+
+;; ecb autoload
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/ecb")
+(setq semantic-load-turn-everything-on t)
+(require 'semantic-load)
+(require 'ecb)
+(require 'ecb-autoloads)
+(ecb-activate)
+(ecb-redraw-layout)
 
 ;; speedbar inframe support
 (load-library "~/.emacs-files/sr-speedbar.el")
