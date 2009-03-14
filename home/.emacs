@@ -40,6 +40,10 @@
   ;; If there is more than one, they won't work right.
  )
 
+;; =====================================
+;;  Visual settings
+;; =====================================
+
 ;; initialize emacs maximized
 (defun toogle-fullscreen ()
   (interactive)
@@ -49,43 +53,6 @@
 						 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
 )
 (toogle-fullscreen)
-
-;; YASnippet autoload
-(add-to-list 'load-path "~/.emacs-files/yasnippet-0.5.10")
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs-files/yasnippet-0.5.10/snippets")
-(setq yas/window-system-popup-function 'yas/x-popup-menu-for-template)
-
-;; Jeremy's groovy mode autoload
-(load-library "~/.emacs-files/groovy-mode.el")
-(autoload 'groovy-mode "groovy-mode" "Groovy editing mode." t)
-(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
-(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
-
-;; django mode autoload
-(load-library "~/.emacs-files/django-mode.el")
-
-;; javascript 2 mode autoload
-(load-library "/usr/share/emacs/site-lisp/js2.el")
-(autoload 'js2-mode "js2.el" nil t)
-(setq auto-mode-alist (append '(("/*.\.js$" .js2-mode)) auto-mode-alist))
-
-;; css mode autoload
-(require 'css-mode)
-(autoload 'css-mode "css-mode.el" "Mode for editing CSS files" t)
-(setq auto-mode-alist (append '(("/*.\.css$" . css-mode)) auto-mode-alist))
-
-;; ruby mode autoload
-;;(load-library "~/.emacs-files/ruby")
-
-;; rails mode autoload
-;;(load-library "~/.emacs-files/rails")
-
-;; python mode autoload
-(require 'python-mode)
-(autoload 'python-mode "python-mode.el" "Python mode." t)
-(setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) auto-mode-alist))
 
 ;; classic theme autoload
 (require 'color-theme)
@@ -98,12 +65,23 @@
 ;; redpill-color-theme
 (load-library "~/.emacs-files/emacs-redpill-theme.el")
 
-;; turning on syntax hilighting
-(global-font-lock-mode 1)
+;; turn off toolbar
+(tool-bar-mode -1)
+;(menu-bar-mode -1)
+
+;; showing line numbers
+(setq line-number-mode t)
+
+;; =====================================
+;;  Usability settings
+;; =====================================
 
 ;; alarmbell off
 (setq visible-bell 1)
 (setq ring-bell-function 'ignore)
+
+;; turning on syntax hilighting
+(global-font-lock-mode 1)
 
 ;; autoadd new eof line
 (setq require-final-newline t)
@@ -117,16 +95,9 @@
 ;(setq-default indent-tabs-mode nil)
 ;(setq tabify nil)
 
-;; turn off toolbar
-(tool-bar-mode -1)
-;(menu-bar-mode -1)
-
 ;; clear the trash
 (setq delete-auto-save-files t)
 (setq make-backup-files nil)
-
-;; showing line numbers
-(setq line-number-mode t)
 
 ;; clear trailing spaces
 (global-set-key "\C-cw" 'delete-trailing-whitespace)
@@ -149,13 +120,66 @@
 (ecb-redraw-layout)
 
 ;; speedbar inframe support
-(load-library "~/.emacs-files/sr-speedbar.el")
-(require 'sr-speedbar)
-(global-set-key [(super ?[)] 'sr-speedbar-toggle)
+;(load-library "~/.emacs-files/sr-speedbar.el")
+;(require 'sr-speedbar)
+;(global-set-key [(super ?[)] 'sr-speedbar-toggle)
 
 ;; speedbar options
-(speedbar-add-supported-extension ".js")
-(speedbar-add-supported-extension ".css")
-(speedbar-add-supported-extension ".djhtml")
-(speedbar-add-supported-extension ".groovy")
-(speedbar-add-supported-extension ".story")
+;(speedbar-add-supported-extension ".js")
+;(speedbar-add-supported-extension ".css")
+;(speedbar-add-supported-extension ".djhtml")
+;(speedbar-add-supported-extension ".groovy")
+;(speedbar-add-supported-extension ".story")
+
+;; =====================================
+;;  Programming settings
+;; =====================================
+
+;; javascript 2 mode autoload
+(load-library "/usr/share/emacs/site-lisp/js2.el")
+(autoload 'js2-mode "js2.el" nil t)
+(setq auto-mode-alist (append '(("/*.\.js$" .js2-mode)) auto-mode-alist))
+
+;; css mode autoload
+(require 'css-mode)
+(autoload 'css-mode "css-mode.el" "Mode for editing CSS files" t)
+(setq auto-mode-alist (append '(("/*.\.css$" . css-mode)) auto-mode-alist))
+
+;; python mode autoload
+(require 'python-mode)
+(autoload 'python-mode "python-mode.el" "Python mode." t)
+(setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) auto-mode-alist))
+
+;; django mode autoload
+(load-library "~/.emacs-files/django-mode.el")
+
+;; ruby mode autoload
+;;(load-library "~/.emacs-files/ruby")
+
+;; rails mode autoload
+;;(load-library "~/.emacs-files/rails")
+
+;; Jeremy's groovy mode autoload
+(load-library "~/.emacs-files/groovy-mode.el")
+(autoload 'groovy-mode "groovy-mode" "Groovy editing mode." t)
+(add-to-list 'auto-mode-alist '("\.groovy$" . groovy-mode))
+(add-to-list 'interpreter-mode-alist '("groovy" . groovy-mode))
+
+;; YASnippet autoload
+(add-to-list 'load-path "~/.emacs-files/yasnippet-0.5.10")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs-files/yasnippet-0.5.10/snippets")
+(setq yas/window-system-popup-function 'yas/x-popup-menu-for-template)
+
+;; Pycomplete autoload
+(load-library "~/.emacs-files/pycomplete/pycomplete.el")
+;(require 'pycomplete)
+(setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
+(autoload 'python-mode "python-mode" "Python editing mode." t)
+(autoload 'pymacs-load "pymacs" nil t)
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(setq interpreter-mode-alist(cons '("python" . python-mode)
+								  interpreter-mode-alist))
