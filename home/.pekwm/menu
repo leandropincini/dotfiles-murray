@@ -278,7 +278,7 @@ WindowMenu = "Window Menu" {
 		# This is what you want if you are using external tools to make
 		# the amount of workspaces something else than what you define in
 		# ~/.pekwm/config. You will know if you want this.
-		# Entry = "" { Actions = "Dynamic /usr/share/pekwm/scripts/pekwm_ws_menu.sh send dynamic" }
+		Entry = "" { Actions = "Dynamic /usr/share/pekwm/scripts/pekwm_ws_menu.sh send dynamic" }
 	}
 
 	Separator {}
