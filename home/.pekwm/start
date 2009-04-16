@@ -18,3 +18,4 @@
 # wasn't one, and I wanted to avoid that for pekwm. ;) --eyez
 xrdb -merge ~/.Xresources &
 stalonetray &
+xscreensaver &
