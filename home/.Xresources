@@ -1,24 +1,58 @@
 ! Global
+*background: #242424
+*foreground: #fafffa
+
+! Xft
 Xft.antialias: true
 Xft.rgba      : rgb
-Xft.hintstyle : hintfull
-Xft.hinting   : true
+!Xft.hintstyle : hintfull
+Xft.hintstyle : full
+!Xft.hinting   : true
+Xft.dpi: 105
 
 ! URxvt
 !URxvt*background: #15233a
+URxvt*transparent: True
+URxvt*shading: 30
 URxvt*xftAntialias: true
-URxvt*background: #242424
-URxvt*foreground: #fafffa
-!URxvt*inheritPixmap: true
-!URxvt*reverseVideo: false
-!URxvt*tintColor: #000000
-!URxvt*shading: 40
-!URxvt*fading: 5
 URxvt*font: xft:Monaco:pixelsize=11:antialias=false
 URxvt*boldFont : xft:Monaco: pixelsize=11:weight=bold
 URxvt*scrollBar: false
 URxvt*toolBar: false
-!URxvt*transparent: True
+!URxvt*background: #242424
+!URxvt*foreground: #fafffa
+!URxvt*inheritPixmap: true
+!URxvt*reverseVideo: false
+!URxvt*tintColor: #000000
+!URxvt*fading: 5
+! Tango theme
+URxvt.color0:  #2E3436
+URxvt.color1:  #CC0000
+URxvt.color2:  #4E9A06
+URxvt.color3:  #C4A000
+URxvt.color4:  #3465A4
+URxvt.color5:  #75507B
+URxvt.color6:  #16989A
+URxvt.color7:  #D3D7CF
+URxvt.color8:  #555753
+URxvt.color9:  #EF2929
+URxvt.color10: #8AE234
+URxvt.color11: #FCE94F
+URxvt.color12: #729FCF
+URxvt.color13: #AD7FA8
+URxvt.color14: #34E2E2
+URxvt.color15: #EEEEEC
+
+! xterm
+!xterm*backgraund: #242424
+
+! xpdf
+xpdf*enableFreetype: yes
+xpdf*antialias: yes
+!xpdf*foreground: black
+!xpdf*background: white
+xpdf*urlCommand: /usr/bin/firefox %s
+!xpdf*viKeys: on
 
 ! Emacs
 !Emacs.font: Monospace-10
